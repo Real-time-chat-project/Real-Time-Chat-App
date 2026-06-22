@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-8+msooe&kbcg-nmj-vrc#vp#2(#=f8vg8xvc^6i=b&36^uam&x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    '*'
+]
 
 
 # Application definition
@@ -58,7 +62,14 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "https://real-time-chat-app-frontend-eu0j.onrender.com",
+    "http://localhost:5173",
 ]
+
+ACCESS_ALLOW_ORIGINS = True
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 ROOT_URLCONF = 'chat.urls'
@@ -101,7 +112,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://djangobackend_23rl_user:7ApOD42KJ8L7YncDuaxUROKY1ketQH7R@dpg-d1mb2fu3jp1c73eicplg-a/djangobackend_23rl',
+        default='postgresql://real_time_chat_app_d5qf_user:xsbb7n5FSYB62HafAXyrSrngeL6jyhYt@dpg-d8shglcvikkc739n3uqg-a.frankfurt-postgres.render.com/real_time_chat_app_d5qf',
         conn_max_age=600,
         ssl_require=True
     )
